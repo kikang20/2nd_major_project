@@ -86,6 +86,8 @@ const getSpecificRepo = async function(repoName){
 const displaySpecificRepo = function (repoInfo, languages){
   repoData.innerHTML = "";
   const div = document.createElement("div");
+  repoData.classList.remove("hide");
+  repos.classList.add("hide");
   div.innerHTML = `
   <h3>Name: ${repoInfo.name}</h3>
     <p>Description: ${repoInfo.description}</p>
@@ -100,7 +102,7 @@ const displaySpecificRepo = function (repoInfo, languages){
 
 backToRepo.addEventListener("click", function (){
   repos.classList.remove("hide");
-  repoList.classList.add("hide");
+  repoData.classList.add("hide");
   backToRepo.classList.add("hide");
 
 });
@@ -113,9 +115,9 @@ filterInput.addEventListener("input", function(e){
   for(const asd of reposs){
     const lowerCaseEachRepo = asd.innerText.toLowerCase();
     if (lowerCaseEachRepo.includes(lowercaseValue)){
-      reposs.classList.remove("hide");
+      asd.classList.remove("hide");
     } else {
-      reposs.classList.add("hide");
+      asd.classList.add("hide");
     }
 
   };
