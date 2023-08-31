@@ -18,24 +18,24 @@ const filterInput = document.querySelector(".filter-repos");
 
 const getProfile = async function (){
     const user = await fetch(`https://api.github.com/users/${username}`);
-    const infos = await user.json();
+    const data = await user.json();
     
-    displayInfos(infos);
+    displayInfos(data);
 };
 
 getProfile();
 
-const displayInfos = function (infos) {
+const displayInfos = function (data) {
     const div = document.createElement("div");
     div.classList.add("user-info");
     div.innerHTML = ` <figure>
     <img alt="user avatar" src=${infos.avatar_url} />
   </figure>
   <div>
-    <p><strong>Name:</strong> ${infos.name}</p>
-    <p><strong>Bio:</strong> ${infos.bio}</p>
-    <p><strong>Location:</strong> ${infos.location}</p>
-    <p><strong>Number of public repos:</strong> ${infos.public_repos}</p>
+    <p><strong>Name:</strong> ${data.name}</p>
+    <p><strong>Bio:</strong> ${data.bio}</p>
+    <p><strong>Location:</strong> ${data.location}</p>
+    <p><strong>Number of public repos:</strong> ${data.public_repos}</p>
   </div> `;
   overview.append(div);
   fetchData(username);
@@ -75,8 +75,8 @@ const getSpecificRepo = async function(repoName){
   
 
   const languages =[];
-  for (const data in languageData){
-    languages.push(data);
+  for (const language in languageData){
+    languages.push(language);
 
     displaySpecificRepo(repoInfo, languages);
 
