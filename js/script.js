@@ -35,7 +35,7 @@ const displayInfos = function (infos) {
     <p><strong>Name:</strong> ${infos.name}</p>
     <p><strong>Bio:</strong> ${infos.bio}</p>
     <p><strong>Location:</strong> ${infos.location}</p>
-    <p><strong>Number of public repos:</strong> ${infos.num_pub_repos}</p>
+    <p><strong>Number of public repos:</strong> ${infos.public_repos}</p>
   </div> `;
   overview.append(div);
   fetchData(username);
